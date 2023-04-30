@@ -19,6 +19,7 @@ const { combine, timestamp, json } = format;
 //     debug: 7
 // }
 
+let logFolder = `${__dirname}/logs`;
 
 exports.loggerPost = createLogger({
     levels: {
@@ -40,7 +41,7 @@ exports.loggerPost = createLogger({
     ),
     transports: [
         // new transports.Console(),
-        new transports.File({ filename: './logs/post.log' })
+        new transports.File({ filename: `${logFolder}/post.log`})
     ]
 });
 
@@ -64,7 +65,7 @@ exports.loggerTweet = createLogger({
     ),
     transports: [
         // new transports.Console(),
-        new transports.File({ filename: './logs/tweet.log' })
+        new transports.File({ filename: `${logFolder}/tweet.log` })
     ]
 });
 
@@ -88,7 +89,7 @@ exports.loggerUser = createLogger({
     ),
     transports: [
         // new transports.Console(),
-        new transports.File({ filename: './logs/user.log' })
+        new transports.File({ filename: `${logFolder}/user.log` })
     ]
 });
 
@@ -112,6 +113,6 @@ exports.loggerOpenAI = createLogger({
     ),
     transports: [
         // new transports.Console(),
-        new transports.File({ filename: './logs/openai.log' })
+        new transports.File({ filename: `${logFolder}/openai.log` })
     ]
 });
