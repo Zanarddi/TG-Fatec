@@ -35,10 +35,14 @@ After that, just rename the file from appsettings.json.example to appsettings.js
 <br>
 
 
-It is necessary to include some data in the .env.example file, adding the server api value (REACT_APP_API_URL) to the server url.
+It is necessary to include some data in the clent/.env.example file, adding the server api value (REACT_APP_API_URL) to the server url.
 <br>
 <br>
 For this project, the frontend server is the same as the backend server, so the value of REACT_APP_API_URL is the same as the value of the server where both them are hosted.
-
 <br>
-Run "npm start" to start the server in the root of the project.
+<br>
+After that, just rename the file from /client/.env.example to .env
+<br>
+Finally, rename the database, from TG_Zanardi_Gleison.db.example to TG_Zanardi_Gleison.db
+<br>
+Run "npm start" in the root of the project to start the server.
