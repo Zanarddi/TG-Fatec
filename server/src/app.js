@@ -46,7 +46,7 @@ app.listen(process.env.PORT || constants.PORT, () => {
 
 // middleware to serve images in assets, to call it, just use ip/<folder name>/<number>.png
 app.use(express.static(__dirname + '/../../client/build'));
-app.use(express.static(__dirname + '/OpenAI/assets/images'));
+app.use("/assets", express.static(__dirname + '/OpenAI/assets/images'));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded());
@@ -67,9 +67,8 @@ app.use(sessions({
   resave: false,
   cookie: {
     maxAge: oneDay,
-    secure: 'auto',
-    httpOnly: false,
-    sameSite: 'none'
+    secure: "auto",
+    httpOnly: false
   }
 }));
 

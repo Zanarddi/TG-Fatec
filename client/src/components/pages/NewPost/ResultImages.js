@@ -17,8 +17,8 @@ function ResultImages(props) {
   else if (props.state == 'created') {
     return (
       <div className='img-ai-container'>
-        <img onClick={()=>{changeImage('0')}} className={(props.aiImage=='0') ? 'image-AI-selected' : 'image-AI'} src={process.env.REACT_APP_API_URL + props.img0} ></img>
-        <img onClick={()=>{changeImage('1')}} className={(props.aiImage=='1') ? 'image-AI-selected' : 'image-AI'} src={process.env.REACT_APP_API_URL + props.img1} ></img>
+        <img onClick={()=>{changeImage('0')}} className={(props.aiImage=='0') ? 'image-AI-selected' : 'image-AI'} src={process.env.REACT_APP_API_URL + "/assets" + props.img0} ></img>
+        <img onClick={()=>{changeImage('1')}} className={(props.aiImage=='1') ? 'image-AI-selected' : 'image-AI'} src={process.env.REACT_APP_API_URL + "/assets" + props.img1} ></img>
       </div>
     )
   }
