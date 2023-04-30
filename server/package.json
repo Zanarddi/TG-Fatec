@@ -1,0 +1,35 @@
+{
+  "name": "tg-zanardi-gleison",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd .. && cd client && npm run build && cd .. && cd server && node src/app.js",
+    "test": "echo \"Error: no test specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zanarddi/TG-Zanardi-Gleison.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zanarddi/TG-Zanardi-Gleison/issues"
+  },
+  "homepage": "https://github.com/Zanarddi/TG-Zanardi-Gleison#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "mssql": "^9.1.1",
+    "openai": "^3.2.1",
+    "path": "^0.12.7",
+    "request": "^2.88.2",
+    "sqlite3": "^5.1.6",
+    "twitter-api-v2": "^1.14.0",
+    "winston": "^3.8.2"
+  }
+}

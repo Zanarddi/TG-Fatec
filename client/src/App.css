@@ -1,0 +1,491 @@
+.errorMsg {
+  margin: 0;
+  margin-bottom: -30px;
+  font-size: 0.7em;
+  color: white;
+  border-radius: 5px;
+  background-color: var(--color-ERROR);
+}
+
+.LoginPage,
+.RegisterPage {
+  min-height: 100vh;
+  font-size: 1.5em;
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222;
+  background-color: var(--color-F);
+  display: flex;
+  justify-content: center;
+}
+
+.Settings,
+.Dashboard,
+.new-post,
+.LandingPage {
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.content {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+
+
+/* DASHBOARD */
+
+.Dashboard {
+  background-color: var(--color-C);
+}
+
+.posts-panel {
+  width: 100%;
+  max-width: 1020px;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  background-color: var(--color-E);
+}
+
+.posts-header {
+  width: 100%;
+
+  font-size: 2em;
+  color: white;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.posts-header p {
+  margin-left: 50px;
+}
+
+#newPostButton {
+  background-color: var(--color-C);
+  text-align: center;
+  margin-right: 25px;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 35px;
+  cursor: pointer;
+  width: 65px;
+  height: 65px;
+}
+
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  padding-bottom: 30px;
+  width: 100%;
+}
+
+
+
+.post-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  width: 95%;
+}
+
+.post-info {
+  height: 50px;
+  width: 100%;
+  border-radius: 10px;
+
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.post-info #description {
+  overflow: hidden;
+  word-wrap: normal;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  margin-left: 10px;
+  font-size: 1.3em;
+  flex-grow: 1;
+  max-width: 50%;
+}
+
+.post-info #image {
+  width: 40px;
+  padding: 0;
+  margin-top: 5px;
+}
+
+.post-info #schedule {
+  justify-self: flex-end;
+  justify-content: center;
+}
+
+.post-info #social-media {
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+
+  margin-right: 10px;
+  margin-left: auto;
+}
+
+
+
+#rmv-item-bt {
+  background-color: var(--color-C);
+  text-align: center;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 35px;
+  cursor: pointer;
+  min-width: 50px;
+  height: 50px;
+}
+
+
+
+
+
+
+/* Settings */
+
+
+@media  (max-width: 640px) {
+  #settingsContents p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    color: #D1D1D1;
+  }
+
+  .settingsForm {
+    font-size: 0.7em;
+  }
+}
+
+.Settings {
+  background-color: var(--color-E);
+}
+
+.Settings p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+  color: #D1D1D1;
+}
+
+.settingsForm {
+  background-color: var(--color-C);
+  width: 90%;
+  max-width: 960px;
+  height: 100%;
+  padding: 1%;
+  border-radius: 20px;
+
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#settingsTabs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+
+  height: 100%;
+  width: 100%;
+  margin: 6px;
+  margin-right: 8px;
+  border-right: solid rgb(124, 124, 124) 3px;
+  padding-right: 15px;
+}
+
+.twitter-button {
+  background-color: rgb(29, 155, 240);
+  color: white;
+  border: none;
+  border-radius: 18px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  margin-left: 8px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-left: 16px;
+  padding-right: 16px;
+  transition: box-shadow 0.15s;
+  vertical-align: top;
+}
+
+.twitter-button:hover {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#settingsContents button {
+  margin-top: 15px;
+}
+
+#settingsContents {
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  height: 100%;
+  width: 100%;
+
+  margin-left: 8px;
+  border-left: solid rgb(124, 124, 124) 3px;
+  padding-left: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+.Settings p1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5em;
+  color: #D1D1D1;
+}
+
+#tab-profile,
+#tab-accounts,
+#tab-passwordReset {
+  font-size: 1.5em;
+  cursor: pointer;
+  background-color: '';
+
+  padding: 4px;
+  border-radius: 4px;
+}
+
+/* Landing page */
+
+.LandingPage {
+  background-color: var(--color-C);
+}
+
+.LandingPage section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  max-width: 920px;
+  width: 80%;
+  height: 100%;
+  background-color: grey;
+}
+
+.LandingPage .container {
+  position: relative;
+  width: 80%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+
+/* Register page */
+
+.RegisterPage .wrapper {
+  width: 320px;
+  margin-top: 250px;
+  text-align: center;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+}
+
+.register_form>fieldset {
+  border-width: 0;
+  padding: 0;
+}
+
+
+/* Login page */
+
+.LoginPage>.wrapper {
+  padding-top: 250px;
+  text-align: center;
+  display: inline-block;
+  width: 320px;
+}
+
+.login_form>fieldset {
+  border-width: 0;
+  padding: 0;
+}
+
+.links ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.links ul li {
+  display: block;
+  line-height: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+.links ul li a {
+  color: #919191;
+  font-size: 0.6em;
+}
+
+#user_login,
+#user_register,
+#email_register,
+#password_register,
+#password_login,
+#user_email,
+#registerButton,
+#loginButton {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+#loginButton,
+#registerButton {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  height: 38px;
+  padding: 6px 10px;
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+
+hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 0;
+  margin-right: 0;
+  border-top: 1px solid #b6b6b6;
+  align-self: stretch;
+}
+
+
+nav ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+nav ul li {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+nav ul li:first-child {
+  float: left;
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+nav ul li:not(:first-child) {
+  margin-top: 0.4em;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav ul li:last-child a {
+  background-color: #ffffff;
+  margin-right: 0;
+  padding: 0.5rem 1rem;
+  color: var(--color-E);
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 0.5rem 0;
+  margin: 1rem 1.1rem 1rem;
+  margin-right: 0;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  box-sizing: border-box;
+  border-bottom: 2px solid rgba(255, 255, 255, 0);
+}
+
+nav {
+  width: 100%;
+}

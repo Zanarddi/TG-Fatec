@@ -1,0 +1,16 @@
+{
+  "PORT": "",
+  "BEARER_TOKEN": "",
+  "APP_KEY": "",
+  "APP_SECRET": "",
+  "OAUTH2_ID": "",
+  "OAUTH2_SECRET": "",
+  "ACCESS_TOKEN": "",
+  "ACCESS_SECRET": "",
+  "CALLBACK_URL": "",
+  "REACT_SERVER": "",
+  "JWT_KEY": "",
+  "SESSION_SECRET": "",
+  "OPENAI_KEY": "",
+  "OPENAI_ORG": ""
+}

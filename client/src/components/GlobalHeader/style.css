@@ -1,0 +1,28 @@
+.global_header {
+  height: 96px;
+  width: 80%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  padding-bottom: 15px;
+  box-sizing: border-box;
+}
+
+@media  (max-width: 640px) {
+  .global_header {
+    width: 90%;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #header-icon {
+    margin-left: 0;
+  }
+  #header-explanation {
+    display: none;
+  }
+  #header-aboutus {
+    display: none;
+  }
+}

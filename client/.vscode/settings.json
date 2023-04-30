@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/c7d377bb-7c10-4448-ab33-41d7cb6c3c3a/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/tgZanardiGleisonFront",
+  "appService.deploySubpath": "."
+}

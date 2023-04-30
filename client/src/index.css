@@ -1,0 +1,29 @@
+#root{
+    --color-A:#53B6D4;
+    --color-B:#6B909B;
+    --color-C:#357487;
+    --color-D:#92C4D4;
+    --color-E:#214854;
+    --color-F:#eee;
+    --color-ERROR:#FF444B;
+
+}
+
+body {
+  font-family: 'Montserrat', sans-serif,
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
