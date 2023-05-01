@@ -25,13 +25,13 @@ const download = async function (uri, filename, callback) {
  * @returns - the folder path of the images
  */
 exports.downloadImage = async function (images, createdCode) {
-  fs.mkdir('src/OpenAI/assets/images/' + createdCode, { recursive: true }, (err) => {
+  fs.mkdir(__dirname + "/assets/images/" + createdCode, { recursive: true }, (err) => {
     if (err) throw err;
   });
 
   for(num in images){
     // console.log(num);
-    await download(images[num].url, "src/OpenAI/assets/images/" + createdCode + "/" + num + ".png", function(){
+    await download(images[num].url, __dirname + "/assets/images/" + createdCode + "/" + num + ".png", function(){
       // console.log('done');
     })
   }
