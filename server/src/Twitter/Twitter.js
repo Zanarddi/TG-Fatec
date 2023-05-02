@@ -122,9 +122,15 @@ exports.createTweet = async function (userId, twAccessToken, refreshToken, descr
     if (imgUrl != '' && imgUrl != 'false') {
       // make tweet with image
       // console.log('trying to add image');
-      let mediaId = await v1client.v1.uploadMedia(__dirname + '/../OpenAI/assets/images' + imgUrl, { additionalOwners: userId });
+      let mediaId;
+      // testing for tester ID, if it is the tester ID, the image will be uploaded with no additional owners, otherwise, ther will be errors
+      if(userId == "1605218723303923714"){
+        mediaId = await v1client.v1.uploadMedia(__dirname + '/../OpenAI/assets/images' + imgUrl);
+      }
+      else{
+        mediaId = await v1client.v1.uploadMedia(__dirname + '/../OpenAI/assets/images' + imgUrl, { additionalOwners: userId });
+      }
       // console.log('Image added --> ' + mediaId);
-      console.log(mediaId);
       return await tmpClient.v2.tweet({
         text: description,
         media: {
