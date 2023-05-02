@@ -89,7 +89,7 @@ setInterval(async () => {
     if (scheduleDate <= currentdate) {
       console.log(`Creating tweet for schedule ${element.scheduleId}`);
       console.log(`tweet date: ${scheduleDate}, current date: ${currentdate}`);
-      await createTweet(element.accessToken, element.refreshToken, element.postDescription, element.mediaUrl, sqliteDB)
+      await createTweet(element.userId ,element.accessToken, element.refreshToken, element.postDescription, element.mediaUrl, sqliteDB)
         .then((result) => {
           // console.log(result);
           loggerTweet.notice(`tweet ${result.data.id} successfully created | scheduled`)
@@ -227,6 +227,7 @@ app.post("/api/post/create", async (req, res) => {
   if (numRows == '1') {
     let twAccessToken = resultToken[0].access_token;
     let refreshToken = resultToken[0].refresh_token;
+    let userId = resultToken[0].user_id;
     // if statement to check if there is a schedule to the post
 
     let postResult = await createPost(sqliteDB, description, imgUrl, user, schedule, 'false');
@@ -243,7 +244,7 @@ app.post("/api/post/create", async (req, res) => {
       res.status(200).send('Post created');
     }
     else if (twitter) {
-      await createTweet(twAccessToken, refreshToken, description, imgUrl, sqliteDB)
+      await createTweet(userId, twAccessToken, refreshToken, description, imgUrl, sqliteDB)
         .then(async (result) => {
 
           loggerTweet.notice(`tweet ${result.data.id} successfully created`)

@@ -108,7 +108,7 @@ const refreshTwToken = async (refreshToken) => {
 }
 
 
-exports.createTweet = async function (twAccessToken, refreshToken, description, imgUrl, sqliteDB) {
+exports.createTweet = async function (userId, twAccessToken, refreshToken, description, imgUrl, sqliteDB) {
   let newUser = await refreshTwToken(refreshToken);
   // console.log(`newUser bellow -->`);
   // console.log(newUser);
@@ -122,8 +122,9 @@ exports.createTweet = async function (twAccessToken, refreshToken, description, 
     if (imgUrl != '' && imgUrl != 'false') {
       // make tweet with image
       // console.log('trying to add image');
-      let mediaId = await v1client.v1.uploadMedia(__dirname + '/../OpenAI/assets/images' + imgUrl);
+      let mediaId = await v1client.v1.uploadMedia(__dirname + '/../OpenAI/assets/images' + imgUrl, { additionalOwners: userId });
       // console.log('Image added --> ' + mediaId);
+      console.log(mediaId);
       return await tmpClient.v2.tweet({
         text: description,
         media: {

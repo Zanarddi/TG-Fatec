@@ -117,7 +117,7 @@ exports.verifyTwtiterUser = async function (sqliteDB, callback, user, password) 
 
 exports.getTwUserTokens = async function (sqliteDB, user) {
   let data = [];
-  let query = `SELECT access_token, refresh_token FROM tw_user tw JOIN app_user app ON app.tw_id = tw.user_id WHERE app.username = '${user}'`;
+  let query = `SELECT access_token, refresh_token, user_id FROM tw_user tw JOIN app_user app ON app.tw_id = tw.user_id WHERE app.username = '${user}'`;
 
   return new Promise(async (resolve, reject) => {
     sqliteDB.each(query,
@@ -297,6 +297,7 @@ exports.getScheduledPosts = async function (sqliteDB) {
   p.post_id as postId,
   p.post_description as postDescription, 
   p.media_url as mediaUrl, 
+  tu.user_id as userId,
   tu.access_token as accessToken, 
   tu.refresh_token as refreshToken 
   FROM schedule s 
