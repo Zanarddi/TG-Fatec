@@ -51,6 +51,48 @@ exports.getPosts = async function (sqliteDB, user) {
   });
 };
 
+
+// Check email
+exports.verifyEmail = async function (sqliteDB, email) {
+  let data = [];
+  let query = `SELECT * FROM app_user WHERE email = '${email}'`;
+  return new Promise(async (resolve, reject) => {
+    sqliteDB.each(query,
+      // callback that runs for each row
+      (err, row) => {
+        data.push(row);
+      },
+      // callback that runs after completion
+      (err, numRows) => {
+        if (err) {
+          resolve(err);
+        }
+        resolve(numRows);
+      })
+  });
+};
+
+// Creates password reset token
+exports.createResetToken = async function (sqliteDB, email, token, expirationDate) {
+
+  let query = `INSERT OR REPLACE INTO pwd_reset (email, token, expiration) VALUES ('${email}', '${token}', '${expirationDate}')`;
+
+  return new Promise(async (resolve, reject) => {
+    sqliteDB.run(query, [],
+      function (err) {
+        if (err) {
+          resolve(err.errno);
+        }
+        // there is a this.lastId avaliable to be used in his function context
+        var affectedRows = this.changes;
+        resolve(affectedRows);
+      }
+    )
+  });
+};
+
+
+
 // Check user credentials
 exports.verifyUser = async function (sqliteDB, user, password) {
 

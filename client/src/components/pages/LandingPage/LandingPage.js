@@ -1,6 +1,21 @@
 import GlobalHeader from "../../GlobalHeader/GlobalHeader";
+import axios from "axios";
 
 function LandingPage() {
+
+  function reset() {
+    axios.post(process.env.REACT_APP_API_URL + '/api/reset/email', {
+      email: "teste@teste.com"
+    })
+      .then(data => {
+        console.log(data.data);
+      })
+      .catch((error) => {
+        console.log(error.response.status);
+        console.log(error.response.data);
+      });
+  }
+
   return (
     <div className="LandingPage">
       <GlobalHeader isLogged={false} />
@@ -13,9 +28,7 @@ function LandingPage() {
       <section id="join">
         <p>join</p>
       </section>
-      <script src="dist/js/main.min.js"></script>
-      <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
-      <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+      <button onClick={reset}>Test reset</button>
     </div>
   );
 }

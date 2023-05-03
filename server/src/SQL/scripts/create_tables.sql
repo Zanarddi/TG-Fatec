@@ -35,3 +35,9 @@ create table schedule(
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 schedule_date varchar (30) not null,
 post_id INTEGER not null references post(post_id))
+
+create table pwd_reset(
+pwd_reset_id INTEGER PRIMARY KEY AUTOINCREMENT,
+email text unique references app_user(email),
+token text,
+expiration text)

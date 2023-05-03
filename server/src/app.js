@@ -8,10 +8,11 @@ const jwt = require('jsonwebtoken');
 const sqlite3 = require('sqlite3').verbose();
 const cookieParser = require('cookie-parser');
 const path = require('path');
+const crypto = require('crypto');
 
 const { loggerPost, loggerTweet, loggerUser, loggerOpenAI } = require("./logger");
 const { generateImage } = require("./OpenAI/OpenAI");
-const { getTop10, getPosts, verifyUser, createPost, createUser, createTwitterAccount, getTwUserTokens, getScheduledPosts, deleteSchedule, updatePost } = require('./SQL/SQLite');
+const { getTop10, getPosts, verifyUser, verifyEmail, createResetToken, createPost, createUser, createTwitterAccount, getTwUserTokens, getScheduledPosts, deleteSchedule, updatePost } = require('./SQL/SQLite');
 const { validateUser, validateEmail } = require('./validation');
 const { generateAuthLinkTw, getUserTw, createTweet } = require('./Twitter/Twitter');
 const { log } = require('winston');
@@ -89,7 +90,7 @@ setInterval(async () => {
     if (scheduleDate <= currentdate) {
       console.log(`Creating tweet for schedule ${element.scheduleId}`);
       console.log(`tweet date: ${scheduleDate}, current date: ${currentdate}`);
-      await createTweet(element.userId ,element.accessToken, element.refreshToken, element.postDescription, element.mediaUrl, sqliteDB)
+      await createTweet(element.userId, element.accessToken, element.refreshToken, element.postDescription, element.mediaUrl, sqliteDB)
         .then((result) => {
           // console.log(result);
           loggerTweet.notice(`tweet ${result.data.id} successfully created | scheduled`)
@@ -110,7 +111,47 @@ setInterval(async () => {
 
 
 
-// /api routes
+// api routes
+
+
+app.post("/api/reset/email", async (req, res) => {
+  // check for email
+  if (!(validateEmail(req.body.email))) {
+    console.log(`invalid email: ${req.body.email}`);
+    return res.status(400).json({ message: 'Invalid email' });
+  }
+
+  let resultEmail = await verifyEmail(sqliteDB, req.body.email);
+
+  if (resultEmail == '1') {
+    //email exists
+
+    let randomToken = crypto.randomBytes(16).toString('hex');
+    console.log(`token: ${randomToken}`);
+
+    let expireTime = 20;
+    let currentDate = new Date();
+    console.log(`current date: ${currentDate}`);
+    let expireDate = new Date(currentDate.getTime() + expireTime*60000).toLocaleString({ timeZone: 'America/Sao_Paulo' });
+    console.log(`expire date: ${expireDate}`);
+
+    let resultToken = await createResetToken(sqliteDB, req.body.email, randomToken, expireDate);
+
+    if (resultToken == '1') {
+      //enviar email com o token
+      return res.status(201).json({ message: 'Email sent' });
+    } else {
+      return res.status(500).json({ message: 'Internal server error when sending email' });
+    }
+
+  } else if (resultEmail == '0') {
+    //email does not exist
+    return res.status(404).json({ message: 'Email not found' });
+  } else {
+    //error
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+})
 
 app.post("/api/register", async (req, res) => {
 
@@ -369,11 +410,6 @@ app.get("/api/test/session", (req, res) => {
   res.send('ok')
 });
 
-app.get("/*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "..", "..", "client", "build", "index.html"));
-});
-
-
 // GET for testing database
 // app.get("/test/sql", (req, res) => {
 //   let callback = (result) => {
@@ -384,6 +420,13 @@ app.get("/*", (req, res) => {
 //     await getTop10(sqliteDB, callback)
 //   })();
 // });
+
+app.get("/*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "..", "..", "client", "build", "index.html"));
+});
+
+
+
 
 // Set a default get return
 // app.get('*', function (req, res) {
