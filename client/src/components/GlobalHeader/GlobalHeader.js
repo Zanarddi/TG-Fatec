@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import kanagawa from './../img/kanagawa.webp'
+import logo from './../img/logo-tg.png'
 import './style.css'
 axios.defaults.withCredentials = true;
 
@@ -28,7 +28,7 @@ function GlobalHeader(props) {
             <li className="site-name" key='site-logo'>
               <a id="header-icon" title="Yep, that's me!" href="/dashboard">
                 <img alt="WaniKani logo"
-                  src={kanagawa}
+                  src={logo}
                   width="48" height="48" />
               </a>
             </li>
@@ -54,7 +54,7 @@ function GlobalHeader(props) {
             <li className="site-name">
               <a id="header-icon" title="Yep, that's me!" href="/">
                 <img alt="WaniKani logo"
-                  src={kanagawa}
+                  src={logo}
                   width="48" height="48" />
               </a>
             </li>

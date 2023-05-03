@@ -4,7 +4,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import { verifyToken } from './auth';
 
-import LandingPage from './components/pages/LandingPage';
+import LandingPage from './components/pages/LandingPage/LandingPage';
 import LoginPage from './components/pages/LoginPage';
 import RegisterPage from './components/pages/RegisterPage';
 import PrivateRoute from './components/PrivateRoute';

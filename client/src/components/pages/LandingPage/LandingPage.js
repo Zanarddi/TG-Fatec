@@ -1,4 +1,4 @@
-import GlobalHeader from "../GlobalHeader/GlobalHeader";
+import GlobalHeader from "../../GlobalHeader/GlobalHeader";
 
 function LandingPage() {
   return (
@@ -13,6 +13,9 @@ function LandingPage() {
       <section id="join">
         <p>join</p>
       </section>
+      <script src="dist/js/main.min.js"></script>
+      <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+      <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
     </div>
   );
 }
