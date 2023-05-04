@@ -12,6 +12,7 @@ const crypto = require('crypto');
 
 const { loggerPost, loggerTweet, loggerUser, loggerOpenAI } = require("./logger");
 const { generateImage } = require("./OpenAI/OpenAI");
+const { sendEmail } = require("./mail");
 const { getTop10, getPosts, verifyUser, verifyEmail, createResetToken, createPost, createUser, createTwitterAccount, getTwUserTokens, getScheduledPosts, deleteSchedule, updatePost } = require('./SQL/SQLite');
 const { validateUser, validateEmail } = require('./validation');
 const { generateAuthLinkTw, getUserTw, createTweet } = require('./Twitter/Twitter');
@@ -114,8 +115,14 @@ setInterval(async () => {
 // api routes
 
 
+app.post("/api/reset/passord/:token", async (req, res) => {
+  let token = req.params.token;
+
+})
+
 app.post("/api/reset/email", async (req, res) => {
   // check for email
+  console.log(`email: ${req.body.email}`);
   if (!(validateEmail(req.body.email))) {
     console.log(`invalid email: ${req.body.email}`);
     return res.status(400).json({ message: 'Invalid email' });
@@ -127,19 +134,24 @@ app.post("/api/reset/email", async (req, res) => {
     //email exists
 
     let randomToken = crypto.randomBytes(16).toString('hex');
-    console.log(`token: ${randomToken}`);
+    // console.log(`token: ${randomToken}`);
 
     let expireTime = 20;
     let currentDate = new Date();
-    console.log(`current date: ${currentDate}`);
+    // console.log(`current date: ${currentDate}`);
     let expireDate = new Date(currentDate.getTime() + expireTime*60000).toLocaleString({ timeZone: 'America/Sao_Paulo' });
-    console.log(`expire date: ${expireDate}`);
+    // console.log(`expire date: ${expireDate}`);
 
     let resultToken = await createResetToken(sqliteDB, req.body.email, randomToken, expireDate);
 
     if (resultToken == '1') {
       //enviar email com o token
-      return res.status(201).json({ message: 'Email sent' });
+      let emailResult = await sendEmail(req.body.email, randomToken);
+      if (emailResult) {
+        return res.status(201).json({ message: 'Email sent' });
+      } else {
+        return res.status(500).json({ message: 'Internal server error when sending email' });
+      }
     } else {
       return res.status(500).json({ message: 'Internal server error when sending email' });
     }

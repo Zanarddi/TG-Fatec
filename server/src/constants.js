@@ -32,5 +32,7 @@ module.exports = Object.freeze({
     JWT_KEY: config.JWT_KEY,
     SESSION_SECRET: config.SESSION_SECRET,
     OPENAI_KEY: config.OPENAI_KEY,
-    OPENAI_ORG: config.OPENAI_ORG
+    OPENAI_ORG: config.OPENAI_ORG,
+    GMAIL_ACCOUNT: config.GMAIL_ACCOUNT,
+    GMAIL_PASSWORD: config.GMAIL_PASSWORD
 })

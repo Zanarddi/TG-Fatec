@@ -12,5 +12,7 @@
   "JWT_KEY": "",
   "SESSION_SECRET": "",
   "OPENAI_KEY": "",
-  "OPENAI_ORG": ""
+  "OPENAI_ORG": "",
+  "GMAIL_ACCOUNT": "",
+  "GMAIL_PASSWORD": ""
 }

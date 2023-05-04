@@ -6,6 +6,8 @@ import { verifyToken } from './auth';
 
 import LandingPage from './components/pages/LandingPage/LandingPage';
 import LoginPage from './components/pages/LoginPage';
+import EmailPage from './components/pages/EmailPage';
+import PasswordPage from './components/pages/PasswordPage';
 import RegisterPage from './components/pages/RegisterPage';
 import PrivateRoute from './components/PrivateRoute';
 import Dashboard from './components/pages/Dashboard';
@@ -46,6 +48,8 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/forgotpassword" element={<EmailPage />} />
+          <Route path="/changepassword" element={<PasswordPage />} />
           <Route path="/signup" element={<RegisterPage />} />
           <Route path="*" element={<LandingPage />} />
           <Route path="/dashboard" element={

@@ -8,7 +8,9 @@
 }
 
 .LoginPage,
-.RegisterPage {
+.RegisterPage,
+.PasswordPage,
+.EmailPage {
   min-height: 100vh;
   font-size: 1.5em;
   line-height: 1.6;
@@ -324,6 +326,33 @@
   box-sizing: border-box;
 }
 
+/* Email page */
+
+.EmailPage>.wrapper {
+  padding-top: 250px;
+  text-align: center;
+  display: inline-block;
+  width: 320px;
+}
+
+.email_form>fieldset {
+  border-width: 0;
+  padding: 0;
+}
+
+/* Password page */
+
+.PasswordPage>.wrapper {
+  padding-top: 250px;
+  text-align: center;
+  display: inline-block;
+  width: 320px;
+}
+
+.password_form>fieldset {
+  border-width: 0;
+  padding: 0;
+}
 
 /* Register page */
 
@@ -376,17 +405,20 @@
 
 #user_login,
 #user_register,
+#email_reset,
 #email_register,
 #password_register,
 #password_login,
 #user_email,
 #registerButton,
+#emailButton,
 #loginButton {
   margin-bottom: 10px;
   width: 100%;
 }
 
 #loginButton,
+#emailButton,
 #registerButton {
   display: inline-block;
   height: 38px;
