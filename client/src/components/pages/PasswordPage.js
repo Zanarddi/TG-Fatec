@@ -1,4 +1,4 @@
-import LoginForm from "../forms/LoginForm";
+import PasswordForm from "../forms/PasswordForm";
 import { useSearchParams } from "react-router-dom";
 
 function PasswordPage() {
@@ -10,17 +10,12 @@ function PasswordPage() {
   return (
     <div className="PasswordPage">
       <div className='wrapper'>
-        <p>PASSWORD PAGE</p>
-        <p>token: {token}</p>
-        <p>email: {email}</p>
-        <LoginForm></LoginForm>
+        <PasswordForm token={token} email={email}></PasswordForm>
         <hr></hr>
         <div className="links">
           <ul>
             <li><a href="/signup">Sign up</a></li>
-            <li><a href="/">Forgot password?</a></li>
             <li><a href="/">Return to landing page</a></li>
-            <li><a href="/">Didn't receive confirmation instructions?</a></li>
           </ul>
         </div>
       </div>

@@ -51,6 +51,79 @@ exports.getPosts = async function (sqliteDB, user) {
   });
 };
 
+exports.changePassword = async function (sqliteDB, password, user, email) {
+
+  let data = [];
+  let query = "";
+
+  if (user == null) {
+    query = `UPDATE app_user SET str_password = '${password}' WHERE email = '${email}'`;
+  } else if (email == null) {
+    query = `UPDATE app_user SET str_password = '${password}' WHERE username = '${user}'`;
+  }
+
+  return new Promise(async (resolve, reject) => {
+    sqliteDB.run(query, [],
+      function (err) {
+        if (err) {
+          console.log('erro --> ' + err.code);
+          console.log('mensagem --> ' + err.message);
+          // console.log(err);
+          reject(err.errno);
+        }
+        // there is a this.lastId avaliable to be used in his function context
+        var affectedRows = this.changes;
+        resolve(affectedRows);
+      }
+    )
+  });
+};
+
+exports.verifyPaswordToken = async function (sqliteDB, token, email) {
+  let data = [];
+  let query = `SELECT * FROM pwd_reset WHERE token = '${token}' AND email = '${email}'`;
+
+  return new Promise(async (resolve, reject) => {
+    sqliteDB.each(query,
+      // callback that runs for each row
+      (err, row) => {
+        //console.log(row);
+        data.push(row)
+      },
+      // callback that runs after completion
+      (err, numRows) => {
+        if (err) {
+          reject(`Error while getting token from database`);
+        }
+        if (numRows != 1) {
+          reject(numRows);
+        }
+        else {
+          resolve(data);
+        }
+      })
+  });
+}
+
+exports.deletePasswordToken = async function (sqliteDB, token, email) {
+  var query = `DELETE FROM pwd_reset WHERE token = '${token}' AND email = '${email}'`;
+  return new Promise(async (resolve, reject) => {
+    sqliteDB.run(query, [],
+      function (err) {
+        if (err) {
+          console.log('erro --> ' + err.code);
+          console.log('mensagem --> ' + err.message);
+          // console.log(err);
+          reject(err.errno);
+        }
+        // there is a this.lastId avaliable to be used in his function context
+        var affectedRows = this.changes;
+        resolve(affectedRows);
+      }
+    )
+  });
+}
+
 
 // Check email
 exports.verifyEmail = async function (sqliteDB, email) {

@@ -13,7 +13,7 @@ const crypto = require('crypto');
 const { loggerPost, loggerTweet, loggerUser, loggerOpenAI } = require("./logger");
 const { generateImage } = require("./OpenAI/OpenAI");
 const { sendEmail } = require("./mail");
-const { getTop10, getPosts, verifyUser, verifyEmail, createResetToken, createPost, createUser, createTwitterAccount, getTwUserTokens, getScheduledPosts, deleteSchedule, updatePost } = require('./SQL/SQLite');
+const { getTop10, getPosts, changePassword, deletePasswordToken, verifyUser, verifyEmail, verifyPaswordToken, createResetToken, createPost, createUser, createTwitterAccount, getTwUserTokens, getScheduledPosts, deleteSchedule, updatePost } = require('./SQL/SQLite');
 const { validateUser, validateEmail } = require('./validation');
 const { generateAuthLinkTw, getUserTw, createTweet } = require('./Twitter/Twitter');
 const { log } = require('winston');
@@ -115,10 +115,60 @@ setInterval(async () => {
 // api routes
 
 
-app.post("/api/reset/passord/:token", async (req, res) => {
-  let token = req.params.token;
+app.post("/api/reset/password", async (req, res) => {
+  let token = req.body.token;
+  let password = req.body.password;
+  let email = req.body.email;
+  await verifyPaswordToken(sqliteDB, token, email)
+    .then(async (data) => {
 
+      let newEmail = data[0].email;
+      let newToken = data[0].token;
+      let expireDate = data[0].expiration;
+      console.log(`new email: ${newEmail}`);
+      console.log(`new token: ${newToken}`);
+      console.log(`expire date: ${expireDate}`);
+
+      if (expireDate <= new Date().toLocaleString({ timeZone: 'America/Sao_Paulo' })) {
+        //token expired
+        return res.status(401).json({ message: 'Token expired' });
+      } else {
+        //change password
+        await changePassword(sqliteDB, password, null, newEmail)
+          .then(async (data) => {
+            if (data == 1) {
+              console.log(`password changed`);
+              loggerUser.notice(`password changed for email ${newEmail}`);
+              await deletePasswordToken(sqliteDB, newToken, newEmail)
+              .catch((err) => {
+                console.log(`error deleting token`);
+              })
+              return res.status(200).json({ message: 'Password changed' });
+            }
+            else {
+              console.log(`error changing password`);
+              return res.status(500).json({ message: 'Internal error' });
+            }
+          })
+          .catch((err) => {
+            console.log(`error changing password`);
+            return res.status(500).json({ message: 'Internal error' });
+          })
+      }
+    }
+    )
+    .catch((err) => {
+      //token not found
+      if (err == 0) {
+        return res.status(400).json({ message: 'Invalid token' });
+      } else {
+        //return internal error
+        return res.status(500).json({ message: 'Internal error' });
+      }
+    })
 })
+
+
 
 app.post("/api/reset/email", async (req, res) => {
   // check for email
@@ -139,7 +189,7 @@ app.post("/api/reset/email", async (req, res) => {
     let expireTime = 20;
     let currentDate = new Date();
     // console.log(`current date: ${currentDate}`);
-    let expireDate = new Date(currentDate.getTime() + expireTime*60000).toLocaleString({ timeZone: 'America/Sao_Paulo' });
+    let expireDate = new Date(currentDate.getTime() + expireTime * 60000).toLocaleString({ timeZone: 'America/Sao_Paulo' });
     // console.log(`expire date: ${expireDate}`);
 
     let resultToken = await createResetToken(sqliteDB, req.body.email, randomToken, expireDate);

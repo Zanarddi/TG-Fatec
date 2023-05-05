@@ -540,6 +540,10 @@ section{
 #home{
   padding: 0 500px;
 }
+
+#about-us{
+  color: white;
+}
 @media  (max-width: 640px) {
   #home{
     padding: 0;

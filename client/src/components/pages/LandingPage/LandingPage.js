@@ -8,18 +8,9 @@ import openAiLogo from './img/openai.png';
 
 function LandingPage() {
 
-  useEffect(() => {
-    const script = document.createElement('script');
-
-    script.src = "https://use.typekit.net/foobar.js";
-    script.async = true;
-
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    }
-  }, []);
+  const navSignup = () => {
+    window.location.href = "/signup";
+  }
 
   return (
     // <div className="LandingPage">
@@ -32,8 +23,8 @@ function LandingPage() {
             <img src={logo} id="image-logo" className="img-fluid rounded d-block mx-auto" alt="Work 1" />
           </h1>
           <h1 className="heading-black text-capitalize">Who we are!</h1>
-          <p className="lead py-3">We are a company with a project to facilitate your management of marketing and publications on social networks through our website.</p>
-          <button className="btn btn-primary d-inline-flex flex-row align-items-center">
+          <p id="about-us" className="lead py-3">We are a company with a project to facilitate your management of marketing and publications on social networks through our website.</p>
+          <button onClick={navSignup} className="btn btn-primary d-inline-flex flex-row align-items-center">
             Get started now
             <em className="ml-2" data-feather="arrow-right"></em>
           </button>
@@ -161,29 +152,6 @@ function LandingPage() {
       {/* <!--scroll to top--> */}
       <div className="scroll-top">
         <i className="fa fa-angle-up" aria-hidden="true"></i>
-      </div>
-
-      {/* <!-- theme switcher (FOR DEMO ONLY - REMOVE FROM PRODUCTION)--> */}
-      <div className="switcher-wrap">
-        <div className="switcher-trigger">
-          <span className="fa fa-gear"></span>
-        </div>
-        <div className="color-switcher">
-          <h6>Color Switcher</h6>
-          <ul className="mt-3 clearfix">
-            <li className="bg-teal active" data-color="default" title="Default Teal"></li>
-            <li className="bg-purple" data-color="purple" title="Purple"></li>
-            <li className="bg-blue" data-color="blue" title="Blue"></li>
-            <li className="bg-red" data-color="red" title="Red"></li>
-            <li className="bg-green" data-color="green" title="Green"></li>
-            <li className="bg-indigo" data-color="indigo" title="Indigo"></li>
-            <li className="bg-orange" data-color="orange" title="Orange"></li>
-            <li className="bg-cyan" data-color="cyan" title="Cyan"></li>
-            <li className="bg-yellow" data-color="yellow" title="Yellow"></li>
-            <li className="bg-pink" data-color="pink" title="Pink"></li>
-          </ul>
-          <p>These are just demo colors. You can <b>easily</b> create your own color scheme.</p>
-        </div>
       </div>
     </div>
 
