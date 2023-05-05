@@ -501,7 +501,7 @@ nav ul li:last-child a {
   background-color: #ffffff;
   margin-right: 0;
   padding: 0.5rem 1rem;
-  color: var(--color-E);
+  color: black;
   border: 2px solid rgba(255, 255, 255, 0.75);
   border-radius: 5px;
   cursor: pointer;
@@ -520,4 +520,28 @@ nav ul li a {
 
 nav {
   width: 100%;
+}
+
+#image-logo{
+  height: 200px;
+}
+
+#image-landing{
+  height: 60px;
+}
+
+section{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100vw;
+}
+#home{
+  padding: 0 500px;
+}
+@media  (max-width: 640px) {
+  #home{
+    padding: 0;
+  }
 }

@@ -5,7 +5,7 @@ import SettingTabs from "../SettingsTabs";
 
 function SettingsPage(...props) {
 
-  const [content, setContent] = useState('profile');
+  const [content, setContent] = useState('accounts');
 
   const clickHandler = (text) => {
     setContent(text);
@@ -18,7 +18,6 @@ function SettingsPage(...props) {
         <p>Settings</p>
         <div className="settingsForm">
           <div id="settingsTabs" >
-            <a id="tab-profile" onClick={() => clickHandler('profile')}>Profile</a>
             <a id="tab-accounts" onClick={() => clickHandler('accounts')}>Accounts</a>
             <a id="tab-passwordReset" onClick={() => clickHandler('resetPassword')}>Reset password</a>
           </div>

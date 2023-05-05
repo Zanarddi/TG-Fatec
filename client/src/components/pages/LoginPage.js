@@ -11,7 +11,6 @@ function LoginPage() {
             <li><a href="/signup">Sign up</a></li>
             <li><a href="/forgotpassword">Forgot password?</a></li>
             <li><a href="/">Return to landing page</a></li>
-            <li><a href="/">Didn't receive confirmation instructions?</a></li>
           </ul>
         </div>
       </div>

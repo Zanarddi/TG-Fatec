@@ -1,35 +1,194 @@
 import GlobalHeader from "../../GlobalHeader/GlobalHeader";
-import axios from "axios";
+import { useEffect } from "react";
+import logo from './img/Tg-logo.png';
+import twitterLogo from './img/twitter.png';
+import facebookLogo from './img/facebook.png';
+import instagramLogo from './img/instagram.png';
+import openAiLogo from './img/openai.png';
 
 function LandingPage() {
 
-  function reset() {
-    axios.post(process.env.REACT_APP_API_URL + '/api/reset/email', {
-      email: "teste@teste.com"
-    })
-      .then(data => {
-        console.log(data.data);
-      })
-      .catch((error) => {
-        console.log(error.response.status);
-        console.log(error.response.data);
-      });
-  }
+  useEffect(() => {
+    const script = document.createElement('script');
+
+    script.src = "https://use.typekit.net/foobar.js";
+    script.async = true;
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    }
+  }, []);
 
   return (
-    <div className="LandingPage">
+    // <div className="LandingPage">
+    <div>
+
       <GlobalHeader isLogged={false} />
-      <section id="explanation">
-        <p>explanation</p>
+      <section id="home">
+        <div>
+          <h1>
+            <img src={logo} id="image-logo" className="img-fluid rounded d-block mx-auto" alt="Work 1" />
+          </h1>
+          <h1 className="heading-black text-capitalize">Who we are!</h1>
+          <p className="lead py-3">We are a company with a project to facilitate your management of marketing and publications on social networks through our website.</p>
+          <button className="btn btn-primary d-inline-flex flex-row align-items-center">
+            Get started now
+            <em className="ml-2" data-feather="arrow-right"></em>
+          </button>
+        </div>
       </section>
-      <section id="about-us">
-        <p>about us</p>
+
+
+      {/* <!-- features section --> */}
+      <section className="pt-6 pb-7" id="features">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6 mx-auto text-center">
+              <h2 className="heading-black">Social Cat offers everything you need.</h2>
+              <p className="text-muted lead">Make posts on the fly or schedule publications without having to log out and log in to different networks.</p>
+            </div>
+          </div>
+          <div className="row mt-5">
+            <div className="col-md-10 mx-auto">
+              <div className="row feature-boxes">
+                <div className="col-md-6 box">
+                  <div className="icon-box box-primary">
+                    <div className="icon-box-inner">
+                      <img src={twitterLogo} className="img-fluid rounded d-block mx-auto" alt="Tools 1" id="image-landing" />
+                    </div>
+                  </div>
+                  <h5>Twitter</h5>
+                  <p className="text-muted">Manage all your tweets and schedule follow-up posts.</p>
+                </div>
+                <div className="col-md-6 box">
+                  <div className="icon-box box-success">
+                    <div className="icon-box-inner">
+                      <img src={facebookLogo} className="img-fluid rounded d-block mx-auto" alt="Tools 2" id="image-landing" />
+                    </div>
+                  </div>
+                  <h5>Facebook</h5>
+                  <p className="text-muted">Manage your Bussines facebook page publications. (coming soon)</p>
+                </div>
+                <div className="col-md-6 box">
+                  <div className="icon-box box-danger">
+                    <div className="icon-box-inner">
+                      <img src={instagramLogo} className="img-fluid rounded d-block mx-auto" alt="Tools 3" id="image-landing" />
+                    </div>
+                  </div>
+                  <h5>Instagram</h5>
+                  <p className="text-muted">Manage your posts on istagram to get even closer to your customer. (coming soon)</p>
+                </div>
+                <div className="col-md-6 box">
+                  <div className="icon-box box-white">
+                    <div className="icon-box-inner">
+                      <img src={openAiLogo} className="img-fluid rounded d-block mx-auto" alt="Tools 4" id="image-landing" />
+                    </div>
+                  </div>
+                  <h5>Your own AI</h5>
+                  <p className="text-muted">Don't worry about image copyrights with the use of our image creation artificial intelligence, create the perfect image for your post on the fly.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
-      <section id="join">
-        <p>join</p>
+
+      {/* <!--pricing section--> */}
+      <section className="py-7 bg-dark top-right bottom-right" id="pricing">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6 mx-auto text-center">
+              <h2 className="text-white heading-black">Join us right now!</h2>
+              <p className="text-light lead">With a completely free registration, only the use of the images generated by the artificial intelligence will be paid. Join us and boost your posts to the max!</p>
+            </div>
+          </div>
+          <div className="row mt-5">
+            <div className="col-md-8 col-12 divider top-divider mx-auto pt-5 text-center">
+              <h3>Still not convinced on Getting?</h3>
+              <p className="mb-4">Maybe a little chat with the creators will change your mind!</p>
+              <button className="btn btn-primary">
+                TALK WITH US
+              </button>
+            </div>
+          </div>
+        </div>
       </section>
-      <button onClick={reset}>Test reset</button>
+
+      {/* <!--footer--> */}
+      <footer className="py-6">
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-5 mr-auto">
+              <h5>About Social Cat</h5>
+              <p className="text-muted">We are a small company starting the journey in the business world with an idea of making people's lives easier, and a dream of helping them to become the best versions of themselves.</p>
+              <ul className="list-inline social social-sm">
+                <li className="list-inline-item">
+                  <a href=""><i className="fa fa-facebook"></i></a>
+                </li>
+                <li className="list-inline-item">
+                  <a href=""><i className="fa fa-twitter"></i></a>
+                </li>
+                <li className="list-inline-item">
+                  <a href=""><i className="fa fa-google-plus"></i></a>
+                </li>
+              </ul>
+            </div>
+            <div className="col-sm-2">
+              <h5>Legal</h5>
+              <ul className="list-unstyled">
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Terms</a></li>
+              </ul>
+            </div>
+            <div className="col-sm-2">
+              <h5>Help</h5>
+              <ul className="list-unstyled">
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Log in</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="row mt-5">
+            <div className="col-12 text-muted text-center small-xl">
+              &copy; 2023 Social Cat - All Rights Reserved
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* <!--scroll to top--> */}
+      <div className="scroll-top">
+        <i className="fa fa-angle-up" aria-hidden="true"></i>
+      </div>
+
+      {/* <!-- theme switcher (FOR DEMO ONLY - REMOVE FROM PRODUCTION)--> */}
+      <div className="switcher-wrap">
+        <div className="switcher-trigger">
+          <span className="fa fa-gear"></span>
+        </div>
+        <div className="color-switcher">
+          <h6>Color Switcher</h6>
+          <ul className="mt-3 clearfix">
+            <li className="bg-teal active" data-color="default" title="Default Teal"></li>
+            <li className="bg-purple" data-color="purple" title="Purple"></li>
+            <li className="bg-blue" data-color="blue" title="Blue"></li>
+            <li className="bg-red" data-color="red" title="Red"></li>
+            <li className="bg-green" data-color="green" title="Green"></li>
+            <li className="bg-indigo" data-color="indigo" title="Indigo"></li>
+            <li className="bg-orange" data-color="orange" title="Orange"></li>
+            <li className="bg-cyan" data-color="cyan" title="Cyan"></li>
+            <li className="bg-yellow" data-color="yellow" title="Yellow"></li>
+            <li className="bg-pink" data-color="pink" title="Pink"></li>
+          </ul>
+          <p>These are just demo colors. You can <b>easily</b> create your own color scheme.</p>
+        </div>
+      </div>
     </div>
+
+
+    // </div>
   );
 }
 

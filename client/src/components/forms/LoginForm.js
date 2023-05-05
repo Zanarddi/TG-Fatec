@@ -66,7 +66,7 @@ function LoginForm() {
     return (
         <form className='login_form' onSubmit={handleSubmit}>
             <fieldset>
-                <input placeholder="Username or email" tabIndex="1" maxLength="255" type="text" name="user_login" id="user_login" onChange={handleChange}></input>
+                <input placeholder="Username" tabIndex="1" maxLength="255" type="text" name="user_login" id="user_login" onChange={handleChange}></input>
                 <input placeholder="Password" tabIndex="2" maxLength="128" type="password" name="password_login" id="password_login" onChange={handleChange}></input>
                 <p className="errorMsg">{msgErro}</p>
                 <br></br>
