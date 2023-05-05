@@ -63,7 +63,7 @@ function PasswordForm(props) {
                 <input placeholder="Repeat your password" tabIndex="2" maxLength="128" type="password" name="password_reset_repeat" id="password_login" onChange={handleChange}></input>
                 <p className="errorMsg">{msgErro}</p>
                 <br></br>
-                <button type="submit" className="button" id='emailButton' disabled={disableInput} tabIndex="3"> Change Password </button>
+                <button type="submit" className="button" id='passwordButton' disabled={disableInput} tabIndex="3"> Change Password </button>
             </fieldset>
         </form>
     )

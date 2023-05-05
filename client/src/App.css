@@ -264,6 +264,10 @@
   margin-top: 15px;
 }
 
+#settingsContents .button {
+  color: white;
+}
+
 #settingsContents {
 
   display: flex;
@@ -412,6 +416,7 @@
 #user_email,
 #registerButton,
 #emailButton,
+#passwordButton,
 #loginButton {
   margin-bottom: 10px;
   width: 100%;
@@ -419,6 +424,7 @@
 
 #loginButton,
 #emailButton,
+#passwordButton,
 #registerButton {
   display: inline-block;
   height: 38px;
@@ -545,9 +551,20 @@ section{
   color: white;
 }
 
+#title-settings{
+  font-size: 1,8em;
+}
+
+#settingsContents>.button{
+  margin-top: 30px;
+}
+
+#settingsContents>.errorMsg{
+  margin-bottom: -20px;
+}
+
 .title-access{
   color : rgb(51, 51, 51);
-
 }
 @media  (max-width: 640px) {
   #home{

@@ -140,9 +140,9 @@ app.post("/api/reset/password", async (req, res) => {
               console.log(`password changed`);
               loggerUser.notice(`password changed for email ${newEmail}`);
               await deletePasswordToken(sqliteDB, newToken, newEmail)
-              .catch((err) => {
-                console.log(`error deleting token`);
-              })
+                .catch((err) => {
+                  console.log(`error deleting token`);
+                })
               return res.status(200).json({ message: 'Password changed' });
             }
             else {
@@ -165,6 +165,28 @@ app.post("/api/reset/password", async (req, res) => {
         //return internal error
         return res.status(500).json({ message: 'Internal error' });
       }
+    })
+})
+
+app.post("/api/reset/password/logged", async (req, res) => {
+  let password = req.body.password;
+  let user = req.session.user;
+
+  await changePassword(sqliteDB, password, user, null)
+    .then(async (data) => {
+      if (data == 1) {
+        console.log(`password changed`);
+        loggerUser.notice(`password changed for user ${user}`);
+        return res.status(200).json({ message: 'Password changed' });
+      }
+      else {
+        console.log(`error changing password`);
+        return res.status(500).json({ message: 'Internal error' });
+      }
+    })
+    .catch((err) => {
+      console.log(`error changing password`);
+      return res.status(500).json({ message: 'Internal error' });
     })
 })
 
