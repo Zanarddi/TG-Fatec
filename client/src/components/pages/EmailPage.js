@@ -4,6 +4,7 @@ function EmailPage() {
   return (
     <div className="EmailPage">
       <div className='wrapper'>
+      <p className="title-access">Send me a verification e-mail</p>
       <EmailForm></EmailForm>
         <hr></hr>
         <div className="links">

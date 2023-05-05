@@ -4,6 +4,7 @@ function RegisterPage() {
   return (
     <div className="RegisterPage">
       <div className='wrapper'>
+        <p className="title-access">Sign up</p>
         <RegisterForm></RegisterForm>
         <hr></hr>
         <div className="links">

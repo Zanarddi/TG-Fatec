@@ -10,6 +10,7 @@ function PasswordPage() {
   return (
     <div className="PasswordPage">
       <div className='wrapper'>
+        <p className="title-access">Change your password</p>
         <PasswordForm token={token} email={email}></PasswordForm>
         <hr></hr>
         <div className="links">

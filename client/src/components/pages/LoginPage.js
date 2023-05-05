@@ -4,7 +4,8 @@ function LoginPage() {
   return (
     <div className="LoginPage">
       <div className='wrapper'>
-      <LoginForm></LoginForm>
+        <p className="title-access">Login</p>
+        <LoginForm></LoginForm>
         <hr></hr>
         <div className="links">
           <ul>
