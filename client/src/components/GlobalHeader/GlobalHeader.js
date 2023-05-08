@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import logo from './../img/logo-tg.png'
+import logo from './../img/tg-logo.png'
+import logoFull from './../img/tg-logofull.png'
 import './style.css'
 axios.defaults.withCredentials = true;
 
@@ -27,19 +28,19 @@ function GlobalHeader(props) {
           <ul className="nav-load">
             <li className="site-name" key='site-logo'>
               <a id="header-icon" title="Yep, that's me!" href="/dashboard">
-                <img alt="WaniKani logo"
+                <img alt="Social Cat logo"
                   src={logo}
                   width="48" height="48" />
               </a>
             </li>
             <li key='home'>
-              <a title="Go back to your dashboard." href="/dashboard">Home</a>
+              <a id="header-home" title="Go back to your dashboard." href="/dashboard">Home</a>
             </li>
             <li key='settings'>
               <a title="Manage your Settings." href="/settings">Settings</a>
             </li>
             <li key='sign-out'>
-              <a title="Sign Out." onClick={logOut} >Sign Out</a>
+              <a id="header-logout" title="Sign Out." onClick={logOut} >Sign Out</a>
             </li>
           </ul>
         </nav>
@@ -53,17 +54,16 @@ function GlobalHeader(props) {
           <ul className="nav-load">
             <li className="site-name">
               <a id="header-icon" title="Yep, that's me!" href="/">
-                <img alt="WaniKani logo"
-                  src={logo}
-                  width="48" height="48" />
+                <img alt="Social Cat logo"
+                  src={logoFull} id="logo-landingpage" />
               </a>
             </li>
-            <li>
+            {/* <li>
               <a id="header-explanation" title="Read more about this project." href="#explanation">Explanation</a>
             </li>
             <li>
               <a id="header-aboutus" title="Read more about the authors." href="#aboutus">About us</a>
-            </li>
+            </li> */}
             <li>
               <a id="header-login" title="Already have an account? Sign in." href="/login">Sign In</a>
             </li>

@@ -49,7 +49,7 @@
 /* DASHBOARD */
 
 .Dashboard {
-  background-color: var(--color-C);
+  background-color: var(--color-A);
 }
 
 .posts-panel {
@@ -62,7 +62,7 @@
   align-items: flex-start;
   justify-content: center;
 
-  background-color: var(--color-E);
+  background-color: var(--color-C);
 }
 
 .posts-header {
@@ -82,7 +82,7 @@
 }
 
 #newPostButton {
-  background-color: var(--color-C);
+  background-color: var(--color-E);
   text-align: center;
   margin-right: 25px;
   color: white;
@@ -201,7 +201,7 @@
 }
 
 .Settings {
-  background-color: var(--color-E);
+  background-color: var(--color-C);
 }
 
 .Settings p {
@@ -211,7 +211,7 @@
 }
 
 .settingsForm {
-  background-color: var(--color-C);
+  background-color: var(--color-B);
   width: 90%;
   max-width: 960px;
   height: 100%;
@@ -230,7 +230,7 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-
+  color: #D1D1D1;
   height: 100%;
   width: 100%;
   margin: 6px;
@@ -445,6 +445,10 @@
   box-sizing: border-box;
 }
 
+#passwordButton{
+  background-color: var(--color-A);
+}
+
 input[type="email"],
 input[type="number"],
 input[type="search"],
@@ -475,37 +479,51 @@ hr {
 
 
 nav ul {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
   margin: 0;
   padding: 0;
-  text-align: right;
 }
 
 nav ul li {
-  position: relative;
-  display: inline-block;
-  box-sizing: border-box;
-  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 nav ul li:first-child {
-  float: left;
-  margin: 0;
-  font-size: 1.5em;
-  font-weight: bold;
+  margin-right: auto;
 }
 
 nav ul li:not(:first-child) {
-  margin-top: 0.4em;
+  margin-right: 0;
 }
 
 nav ul li:last-child {
   margin-right: 0;
+  margin-left: 20px;
 }
 
-nav ul li:last-child a {
+nav ul li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-family: 'Montserrat', sans-serif;
+}
+
+nav {
+  width: 100%;
+}
+
+#header-signup,
+#header-logout{
   background-color: #ffffff;
-  margin-right: 0;
   padding: 0.5rem 1rem;
   color: black;
   border: 2px solid rgba(255, 255, 255, 0.75);
@@ -513,20 +531,10 @@ nav ul li:last-child a {
   cursor: pointer;
 }
 
-nav ul li a {
-  display: inline-block;
-  padding: 0.5rem 0;
-  margin: 1rem 1.1rem 1rem;
-  margin-right: 0;
-  color: rgba(255, 255, 255, 0.75);
-  text-decoration: none;
-  box-sizing: border-box;
-  border-bottom: 2px solid rgba(255, 255, 255, 0);
+#logo-landingpage{
+  height:60px;
 }
 
-nav {
-  width: 100%;
-}
 
 #image-logo{
   height: 200px;
@@ -562,6 +570,8 @@ section{
 #settingsContents>.errorMsg{
   margin-bottom: -20px;
 }
+
+
 
 .title-access{
   color : rgb(51, 51, 51);

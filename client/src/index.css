@@ -1,12 +1,11 @@
 #root{
-    --color-A:#53B6D4;
-    --color-B:#6B909B;
-    --color-C:#357487;
-    --color-D:#92C4D4;
-    --color-E:#214854;
+    --color-A:#000000;
+    --color-B:#272727;
+    --color-C:#030D25;
+    --color-D:#28C3B6;
+    --color-E:#1DE9B6;
     --color-F:#eee;
     --color-ERROR:#FF444B;
-
 }
 
 body {

@@ -6,7 +6,6 @@
   "scripts": {
     "install": "cd server && npm install && cd .. && cd client && npm install",
     "start": "node server/src/app.js",
-    "build": "cd client && npm run build && cd .. ",
     "test": "echo \"Error: no test specified\""
   },
   "author": "",

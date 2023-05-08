@@ -1,6 +1,6 @@
 
 .new-post {
-  background-color: var(--color-C);
+  background-color: var(--color-A);
 }
 
 .new-post-panel {
@@ -15,7 +15,7 @@
   align-items: flex-start;
   justify-content: center;
 
-  background-color: var(--color-E);
+  background-color: var(--color-C);
 }
 
 .new-posts-header {
@@ -72,7 +72,7 @@
 }
 
 #create-new-post, #generate-image {
-  background-color: var(--color-C);
+  background-color: var(--color-B);
   color: white;
   border: none;
   border-radius: 18px;
@@ -102,7 +102,7 @@
 }
 
 #show-image, #show-schedule{
-  background-color: var(--color-C);
+  background-color: var(--color-E);
   text-align: center;
   color: white;
   border: none;
@@ -116,7 +116,7 @@
 
 .image-prompt, .schedule-prompt {
   border-radius: 10px;
-  width: 96%;
+  width: 100%;
   padding: 2%;
   background-color: azure;
 
@@ -131,11 +131,11 @@
 
 
 .schedule-prompt p{
-  color: var(--color-C);
+  color: var(--color-B);
 }
 
 #date-schedule, #time-schedule{
-  background-color: var(--color-C);
+  background-color: var(--color-B);
   padding: 15px;
   font-family: "Roboto Mono",monospace;
   color: #ffffff;
@@ -162,11 +162,11 @@
   justify-content: flex-start;
 }
 .image-prompt p{
-  color: var(--color-E);
+  color: var(--color-B);
 }
 
 #prompt-ia{
-  border-color: var(--color-C);
+  border-color: var(--color-B);
   width: 100%;
   resize: none;
   height: 60px;
@@ -224,7 +224,7 @@
     height: 80px;
   }
   #show-image, #show-schedule{
-    background-color: var(--color-C);
+    background-color: var(--color-E);
     border-radius: 7px;
     font-size: 1em;
   }

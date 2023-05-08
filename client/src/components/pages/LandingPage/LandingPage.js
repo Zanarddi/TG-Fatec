@@ -1,6 +1,6 @@
 import GlobalHeader from "../../GlobalHeader/GlobalHeader";
-import { useEffect } from "react";
-import logo from './img/Tg-logo.png';
+import logo from './img/tg-logo.png';
+
 import twitterLogo from './img/twitter.png';
 import facebookLogo from './img/facebook.png';
 import instagramLogo from './img/instagram.png';
@@ -10,6 +10,10 @@ function LandingPage() {
 
   const navSignup = () => {
     window.location.href = "/signup";
+  }
+
+  const navTalk = () => {
+    window.location.href = "https://github.com/Zanarddi/TG-Fatec";
   }
 
   return (
@@ -99,7 +103,7 @@ function LandingPage() {
             <div className="col-md-8 col-12 divider top-divider mx-auto pt-5 text-center">
               <h3>Still not convinced on Getting?</h3>
               <p className="mb-4">Maybe a little chat with the creators will change your mind!</p>
-              <button className="btn btn-primary">
+              <button onClick={navTalk} className="btn btn-primary">
                 TALK WITH US
               </button>
             </div>
@@ -116,28 +120,25 @@ function LandingPage() {
               <p className="text-muted">We are a small company starting the journey in the business world with an idea of making people's lives easier, and a dream of helping them to become the best versions of themselves.</p>
               <ul className="list-inline social social-sm">
                 <li className="list-inline-item">
-                  <a href=""><i className="fa fa-facebook"></i></a>
+                  <a href="https://twitter.com/GleoisonGranado"><i className="fa fa-twitter"></i></a>
                 </li>
                 <li className="list-inline-item">
-                  <a href=""><i className="fa fa-twitter"></i></a>
-                </li>
-                <li className="list-inline-item">
-                  <a href=""><i className="fa fa-google-plus"></i></a>
+                  <a href="mailto:adm.social.cat@gmail.com"><i className="fa fa-google-plus"></i></a>
                 </li>
               </ul>
             </div>
             <div className="col-sm-2">
               <h5>Legal</h5>
               <ul className="list-unstyled">
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Terms</a></li>
+                <li><a href="https://github.com/Zanarddi/TG-Fatec">Privacy</a></li>
+                <li><a href="https://github.com/Zanarddi/TG-Fatec">Terms</a></li>
               </ul>
             </div>
             <div className="col-sm-2">
               <h5>Help</h5>
               <ul className="list-unstyled">
-                <li><a href="#">Support</a></li>
-                <li><a href="#">Log in</a></li>
+                <li><a href="https://github.com/Zanarddi/TG-Fatec">Support</a></li>
+                <li><a href="/login">Log in</a></li>
               </ul>
             </div>
           </div>

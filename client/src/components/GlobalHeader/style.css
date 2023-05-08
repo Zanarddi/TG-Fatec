@@ -5,14 +5,13 @@
   margin-left: auto;
   margin-right: auto;
   padding: 0;
-  padding-bottom: 15px;
   box-sizing: border-box;
 }
 
 @media  (max-width: 640px) {
   .global_header {
     width: 90%;
-    max-width: 960px;
+    max-width: 640px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -23,6 +22,12 @@
     display: none;
   }
   #header-aboutus {
+    display: none;
+  }
+  #logo-landingpage{
+    display: none;
+  }
+  #header-home{
     display: none;
   }
 }

@@ -1,9 +1,11 @@
 import LoginForm from "../forms/LoginForm";
+import logo from "../img/tg-logo-light.png";
 
 function LoginPage() {
   return (
     <div className="LoginPage">
       <div className='wrapper'>
+        <img src={logo} id="image-logo" className="img-fluid rounded d-block mx-auto" alt="Work 1" />
         <p className="title-access">Login</p>
         <LoginForm></LoginForm>
         <hr></hr>
