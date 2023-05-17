@@ -128,8 +128,9 @@ app.post("/api/reset/password", async (req, res) => {
       console.log(`new email: ${newEmail}`);
       console.log(`new token: ${newToken}`);
       console.log(`expire date: ${expireDate}`);
-
-      if (expireDate <= new Date().toLocaleString({ timeZone: 'America/Sao_Paulo' })) {
+      let actualDate = new Date().toLocaleString({ timeZone: 'America/Sao_Paulo' });
+      console.log('actual date: ' + actualDate);
+      if (expireDate <= actualDate) {
         //token expired
         return res.status(401).json({ message: 'Token expired' });
       } else {
