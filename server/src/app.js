@@ -27,11 +27,6 @@ const twitterAuthClient = new TwitterApi({
   clientSecret: constants.OAUTH2_SECRET
 });
 
-// const twitterClient = new TwitterApi({
-//   appKey: constants.CONSUMER_KEY,
-//   appSecret: constants.CONSUMER_SECRET
-// });
-
 const oneDay = 1000 * 60 * 60;
 
 const sqliteDB = new sqlite3.Database(__dirname + "/TG_Zanardi_Gleison.db", sqlite3.OPEN_READWRITE, (err) => {

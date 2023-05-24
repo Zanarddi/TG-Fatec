@@ -81,7 +81,13 @@ In this case, the api url is the same as the front end url.
 For this project, the frontend server is the same as the backend server, so the value of REACT_APP_API_URL is the same as the value of the server where both them are hosted.
 <br>
 <br>
-After that, just rename the file from /client/.env.example to .env
+After that, rename the file from /client/.env.example to .env
+<br>
+It is necessary to run a build script in the client folder.
+For that, navigate to the client folder and run:
+```js
+npm run build
+```
 <br>
 Finally, rename the database, from TG_Zanardi_Gleison.db.example to TG_Zanardi_Gleison.db
 <br>

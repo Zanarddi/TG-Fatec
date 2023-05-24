@@ -1,20 +1,6 @@
 require('dotenv').config({ path: __dirname + '/./../.env' }) //path relative to this folder
 const config = require('./../appsettings.json');
 
-// // environment constants, used in other files
-// module.exports = Object.freeze({
-//     PORT: process.env.PORT,
-//     CONSUMER_KEY: process.env.CONSUMER_KEY,
-//     CONSUMER_SECRET: process.env.CONSUMER_SECRET,
-//     CALLBACK_URL: process.env.CALLBACK_URL,
-//     REACT_SERVER: process.env.REACT_SERVER,
-//     JWT_KEY: process.env.JWT_KEY,
-//     SESSION_SECRET: process.env.SESSION_SECRET,
-//     OPENAI_KEY: process.env.OPENAI_KEY,
-//     OPENAI_ORG: process.env.OPENAI_ORG
-// })
-
-
 // environment constants, used in other files
 module.exports = Object.freeze({
     PORT: config.PORT,

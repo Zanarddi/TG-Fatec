@@ -12,7 +12,6 @@ import RegisterPage from './components/pages/RegisterPage';
 import PrivateRoute from './components/PrivateRoute';
 import Dashboard from './components/pages/Dashboard';
 import Loader from './components/Loader';
-import GlobalHeader from './components/GlobalHeader/GlobalHeader';
 import SettingsPage from './components/pages/SettingsPage';
 import NewPost from './components/pages/NewPost/NewPost';
 
