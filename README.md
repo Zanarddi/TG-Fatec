@@ -72,6 +72,12 @@ It is necessary to include some data in the server/appsettings.json.example file
 
 After that, just rename the file from appsettings.json.example to appsettings.json
 <br>
+<br>
+
+It is important to remember to update your twitter developer page, to set teh callback url and to generate your tokens,
+<br>
+Be aware that the `Access Token and Secret`, that gives access to v1.1 of the api, necessary for image upload, must be created with `read and write` access or higher, regenerate the key if necessary.
+<br>
 
 
 It is necessary to include some data in the clent/.env.example file, adding the server api value (REACT_APP_API_URL) to the server url.
