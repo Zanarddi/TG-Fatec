@@ -4,21 +4,6 @@ const { combine, timestamp, json } = format;
 // To use logger:
 // const logger = require('./logger')
 // logger.error('Unable to find user')
-
-
-// new transports.File({ filename: './logs/warning.log', level: 'warning' }),
-
-// levels: {
-//     emerg: 0,
-//     alert: 1,
-//     crit: 2,
-//     error: 3,
-//     warning: 4,
-//     notice: 5,
-//     info: 6,
-//     debug: 7
-// }
-
 let logFolder = `${__dirname}/logs`;
 
 exports.loggerPost = createLogger({

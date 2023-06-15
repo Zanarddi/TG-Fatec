@@ -58,12 +58,6 @@ function GlobalHeader(props) {
                   src={logoFull} id="logo-landingpage" />
               </a>
             </li>
-            {/* <li>
-              <a id="header-explanation" title="Read more about this project." href="#explanation">Explanation</a>
-            </li>
-            <li>
-              <a id="header-aboutus" title="Read more about the authors." href="#aboutus">About us</a>
-            </li> */}
             <li>
               <a id="header-login" title="Already have an account? Sign in." href="/login">Sign In</a>
             </li>

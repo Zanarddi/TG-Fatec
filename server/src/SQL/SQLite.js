@@ -8,15 +8,6 @@ const sqlite3 = require('sqlite3').verbose();
 exports.getTop10 = async function (sqliteDB, callback) {
   var data = [];
 
-  // var query = 'create table schedule(id INTEGER PRIMARY KEY AUTOINCREMENT, schedule_date varchar (30) not null, post_id INTEGER not null references post(post_id))'
-  //var query = 'create table post(post_id INTEGER PRIMARY KEY AUTOINCREMENT, post_description varchar not null, media_url varchar (50), tweet_id varchar (20), schedule varchar, app_user varchar (30) not null references app_user(username))'
-  //var query = 'SELECT access_token, access_secret FROM tw_user tw JOIN app_user app ON app.tw_id = tw.user_id WHERE app.username = "teste"'
-  //var query = 'create table tweet(tweet_id varchar (20) primary key,tw_id varchar (20) not null references tw_user(user_id),media_url varchar (50))';
-  //var query = 'DROP TABLE schedule';
-  //var query = 'DELETE FROM schedule WHERE id = 15';
-  //var query = 'ALTER TABLE tw_user RENAME COLUMN access_secret to refresh_token;';
-  //var query = 'SELECT * FROM tw_user';
-  //var query = "UPDATE post SET post_description = 'new post for sure' WHERE post_id = 42"
   var query = 'SELECT teste'
   sqliteDB.each(query,
     // callback that runs for each row
@@ -52,8 +43,6 @@ exports.getPosts = async function (sqliteDB, user) {
 };
 
 exports.changePassword = async function (sqliteDB, password, user, email) {
-
-  let data = [];
   let query = "";
 
   if (user == null) {

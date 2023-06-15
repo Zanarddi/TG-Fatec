@@ -1,11 +1,7 @@
 const { TwitterApi } = require("twitter-api-v2");
 const constants = require('./../constants');
-const cookieParser = require('cookie-parser');
 const { updateTwitterAccount } = require('./../SQL/SQLite');
 
-const oneDay = 1000 * 60 * 60;
-const { log } = require("winston");
-const { CONSTRAINT } = require("sqlite3");
 
 const v1client = new TwitterApi({
   appKey: constants.APP_KEY,
